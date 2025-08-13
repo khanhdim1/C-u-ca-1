@@ -1,55 +1,44 @@
-* { box-sizing: border-box; }
-html, body { margin:0; height:100%; background:#0b1220; color:#e7f1ff; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial; }
-canvas { display:block; }
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:#091226;color:#eaf6ff;overflow:hidden}
+#game-container{position:fixed;inset:0;z-index:0}
+#ui{
+  position:fixed;left:12px;top:12px;z-index:40;
+  width:380px;padding:12px;border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.14));
+  border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(6px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.5)
+}
+.title h1{margin:0;font-size:18px}
+.title small{opacity:0.85}
+.stats{display:flex;gap:10px;margin-top:8px;font-size:13px;flex-wrap:wrap}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.controls button{flex:1 1 auto;padding:8px 10px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:inherit;cursor:pointer}
+.controls button:hover{background:rgba(255,255,255,0.12)}
+.info{margin-top:10px;font-size:13px;opacity:0.95}
+.dev{margin-top:8px;font-size:12px;opacity:0.7;text-align:right}
+.data-actions{display:flex;gap:8px;margin-top:10px}
+.data-actions button{flex:1;padding:8px;border-radius:8px;border:none;background:rgba(255,255,255,0.04);cursor:pointer}
 
-#ui {
-  position: fixed; left: 12px; top: 12px; z-index: 10;
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.15);
-  padding: 10px 12px; border-radius: 12px; backdrop-filter: blur(6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.2);
-  max-width: 420px;
-}
-#ui h1 { margin:0 0 6px; font-size: 16px; letter-spacing: .2px; }
-#ui .row { display:flex; gap:14px; align-items:center; margin-top:6px; font-size:13px; opacity:.95; }
-#hint { margin-top: 6px; font-size: 12.5px; opacity: .9; line-height: 1.45; }
-#ui .buttons { display:flex; gap:8px; margin-top:8px; }
-#ui button {
-  border: 1px solid rgba(255,255,255,.2);
-  background: rgba(255,255,255,.08);
-  color: #e7f1ff; cursor: pointer; border-radius: 10px;
-  padding: 8px 12px; font-size: 13px;
-}
-#ui button:hover { background: rgba(255,255,255,.16); }
+/* Shop */
+.shop{margin-top:10px;padding:8px;border-radius:8px;background:rgba(0,0,0,0.18);border:1px solid rgba(255,255,255,0.04)}
+.shop h3{margin:0 0 8px}
+.shop-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+.shop-item .buy{padding:6px 10px;border-radius:6px;border:none;background:#0ea5e9;color:#021;cursor:pointer}
+.hidden{display:none}
 
-#minimap {
-  position: fixed; right: 12px; bottom: 12px; z-index: 9;
-  border-radius: 12px; border: 1px solid rgba(255,255,255,.15);
-  background: rgba(0,0,0,.32); backdrop-filter: blur(6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+/* Minimap */
+#minimap{
+  position:fixed;right:12px;bottom:12px;z-index:39;border-radius:10px;border:1px solid rgba(255,255,255,0.06);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.14));
+  box-shadow:0 10px 30px rgba(0,0,0,0.45)
 }
 
-#gameOver {
-  position: fixed; inset: 0; z-index: 20; display: grid; place-items: center;
-  background: rgba(0,0,0,.55); backdrop-filter: blur(4px);
+/* Game over overlay */
+#game-over {
+  position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);
 }
-.hidden { display: none; }
-#gameOver .panel {
-  background: rgba(12,18,32,.9);
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 16px; padding: 18px 22px; text-align: center; min-width: 260px;
-  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+.panel{
+  background:linear-gradient(180deg,#061022,#072134);padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);color:#eaf6ff;text-align:center;
 }
-#gameOver .panel h2 { margin: 0 0 8px; }
-#gameOver .panel button {
-  margin-top: 10px; padding: 10px 14px; border-radius: 10px;
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(255,255,255,.12); color: #e7f1ff; cursor:pointer;
-}
-#gameOver .panel button:hover { background: rgba(255,255,255,.22); }
-
-/* make room for UI on tiny screens */
-@media (max-width: 520px) {
-  #ui { max-width: 92vw; left: 8px; right: 8px; }
-  #minimap { width: 140px; height: 140px; }
-}
+.panel button{margin-top:12px;padding:10px 14px;border-radius:10px;border:none;background:#0ea5e9;color:#042;cursor:pointer}
