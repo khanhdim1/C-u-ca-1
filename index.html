@@ -1,68 +1,28 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>🎣 Ultra Fishing — Rcom Khánh</title>
-  <link rel="stylesheet" href="styles.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game 3D Câu Cá - Rcom Khánh</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="ui">
-    <div class="title">
-      <h1>🎣 Ultra Fishing</h1>
-      <small>Nhà phát triển: <b>Rcom Khánh</b></small>
-    </div>
+<div id="game-container"></div>
 
-    <div class="stats">
-      <span>Điểm: <b id="score">0</b></span>
-      <span>Highscore: <b id="highscore">0</b></span>
-      <span>Level: <b id="level">1</b></span>
-      <span>Thời gian: <b id="timer">120</b>s</span>
-    </div>
+<div id="ui">
+    <h1>🎣 Game 3D Câu Cá</h1>
+    <p>Nhà phát triển: <b>Rcom Khánh</b></p>
+    <button id="castButton">Quăng Cần Câu</button>
+    <p id="status">Hãy quăng cần để bắt cá!</p>
+    <p>Điểm: <span id="score">0</span></p>
+    <button id="toggleDayNight">Chuyển Ngày / Đêm</button>
+</div>
 
-    <div class="controls">
-      <button id="btnCast">Quăng mồi (Click)</button>
-      <button id="btnReel">Thu mồi (Space)</button>
-      <button id="btnUpgrade">Nâng cấp cần (100 điểm)</button>
-      <button id="btnShop">Cửa hàng</button>
-      <button id="btnToggleAudio">Tắt âm</button>
-      <button id="btnToggleDay">Chuyển ngày/đêm</button>
-    </div>
-
-    <div class="shop hidden" id="shopPanel">
-      <h3>Cửa hàng</h3>
-      <div class="shop-item">
-        <div class="name">Mồi tốt (+ catch chance)</div>
-        <div class="price">Giá: <b>70</b></div>
-        <button class="buy" data-item="bait" data-price="70">Mua</button>
-      </div>
-      <div class="shop-item">
-        <div class="name">Lưỡi câu chuyên (+ chance lớn)</div>
-        <div class="price">Giá: <b>150</b></div>
-        <button class="buy" data-item="hook" data-price="150">Mua</button>
-      </div>
-      <div style="margin-top:8px;">
-        <button id="closeShop">Đóng</button>
-      </div>
-    </div>
-
-    <div class="info">
-      <div>Hướng dẫn: Chuột để ngắm • Click để quăng • Giữ Space để thu nhanh • R để reset mồi</div>
-      <div id="state">Trạng thái: <span>Sẵn sàng</span></div>
-    </div>
-
-    <div class="data-actions">
-      <button id="saveData">Lưu dữ liệu</button>
-      <button id="clearData">Xóa dữ liệu</button>
-    </div>
-
-    <div class="dev">© Rcom Khánh</div>
-  </div>
-
-  <canvas id="minimap" width="160" height="160" aria-label="Minimap"></canvas>
-
-  <div id="game-container"></div>
-
-  <script type="module" src="script.js"></script>
+<!-- Thư viện Three.js -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+<!-- Thư viện điều khiển -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/controls/OrbitControls.js"></script>
+<!-- File script -->
+<script src="script.js"></script>
 </body>
 </html>
