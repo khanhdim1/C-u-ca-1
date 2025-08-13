@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game 3D Câu Cá - Rcom Khánh</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>🎣 Game 3D Câu Cá — Rcom Khánh</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div id="game-container"></div>
+  <div id="game-container"></div>
 
-<div id="ui">
+  <aside id="ui">
     <h1>🎣 Game 3D Câu Cá</h1>
-    <p>Nhà phát triển: <b>Rcom Khánh</b></p>
-    <button id="castButton">Quăng Cần Câu</button>
-    <p id="status">Hãy quăng cần để bắt cá!</p>
-    <p>Điểm: <span id="score">0</span></p>
-    <button id="toggleDayNight">Chuyển Ngày / Đêm</button>
-</div>
+    <div class="meta">Nhà phát triển: <b>Rcom Khánh</b></div>
 
-<!-- Thư viện Three.js -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
-<!-- Thư viện điều khiển -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/controls/OrbitControls.js"></script>
-<!-- File script -->
-<script src="script.js"></script>
+    <div class="controls">
+      <button id="castButton">Quăng Cần Câu</button>
+      <button id="reelButton">Thu mồi (giữ)</button>
+      <button id="toggleDay">Chuyển Ngày / Đêm</button>
+    </div>
+
+    <div class="status" id="status">Trạng thái: <span id="statusText">Sẵn sàng</span></div>
+    <div class="score">Điểm: <span id="score">0</span></div>
+
+    <div class="hint">Chạm/chuột để ngắm • Click/Chạm để quăng • Giữ Thu để kéo mồi</div>
+
+    <div class="dev">© Rcom Khánh</div>
+  </aside>
+
+  <canvas id="minimap" width="160" height="160" aria-hidden="true"></canvas>
+
+  <!-- Three.js non-module + OrbitControls (non-module) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
