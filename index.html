@@ -1,42 +1,68 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>🎣 Đi Câu Cá 3D — Full Features</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🎣 Ultra Fishing — Rcom Khánh</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <div id="ui">
-    <h1>🎣 Đi Câu Cá 3D</h1>
-    <div class="row">
+    <div class="title">
+      <h1>🎣 Ultra Fishing</h1>
+      <small>Nhà phát triển: <b>Rcom Khánh</b></small>
+    </div>
+
+    <div class="stats">
       <span>Điểm: <b id="score">0</b></span>
-      <span>• Combo: <b id="combo">x1</b></span>
-    </div>
-    <div class="row">
+      <span>Highscore: <b id="highscore">0</b></span>
+      <span>Level: <b id="level">1</b></span>
       <span>Thời gian: <b id="timer">120</b>s</span>
-      <span>• Trạng thái: <b id="state">Sẵn sàng</b></span>
     </div>
-    <div id="hint">
-      Chuột để <b>ngắm</b> • <b>Click</b> ném mồi • Giữ <b>Space</b> kéo nhanh • <b>R</b> thu về • <b>M</b> bật/tắt âm • Lăn chuột để zoom
+
+    <div class="controls">
+      <button id="btnCast">Quăng mồi (Click)</button>
+      <button id="btnReel">Thu mồi (Space)</button>
+      <button id="btnUpgrade">Nâng cấp cần (100 điểm)</button>
+      <button id="btnShop">Cửa hàng</button>
+      <button id="btnToggleAudio">Tắt âm</button>
+      <button id="btnToggleDay">Chuyển ngày/đêm</button>
     </div>
-    <div class="buttons">
-      <button id="btnRestart">Chơi lại</button>
-      <button id="btnMute">Tắt âm</button>
+
+    <div class="shop hidden" id="shopPanel">
+      <h3>Cửa hàng</h3>
+      <div class="shop-item">
+        <div class="name">Mồi tốt (+ catch chance)</div>
+        <div class="price">Giá: <b>70</b></div>
+        <button class="buy" data-item="bait" data-price="70">Mua</button>
+      </div>
+      <div class="shop-item">
+        <div class="name">Lưỡi câu chuyên (+ chance lớn)</div>
+        <div class="price">Giá: <b>150</b></div>
+        <button class="buy" data-item="hook" data-price="150">Mua</button>
+      </div>
+      <div style="margin-top:8px;">
+        <button id="closeShop">Đóng</button>
+      </div>
     </div>
+
+    <div class="info">
+      <div>Hướng dẫn: Chuột để ngắm • Click để quăng • Giữ Space để thu nhanh • R để reset mồi</div>
+      <div id="state">Trạng thái: <span>Sẵn sàng</span></div>
+    </div>
+
+    <div class="data-actions">
+      <button id="saveData">Lưu dữ liệu</button>
+      <button id="clearData">Xóa dữ liệu</button>
+    </div>
+
+    <div class="dev">© Rcom Khánh</div>
   </div>
 
-  <canvas id="minimap" width="170" height="170" aria-label="Minimap"></canvas>
+  <canvas id="minimap" width="160" height="160" aria-label="Minimap"></canvas>
 
-  <div id="gameOver" class="hidden">
-    <div class="panel">
-      <h2>⏰ Hết giờ!</h2>
-      <p>Điểm của bạn: <b id="finalScore">0</b></p>
-      <button id="btnPlayAgain">Chơi lại</button>
-    </div>
-  </div>
+  <div id="game-container"></div>
 
-  <!-- Three.js game -->
   <script type="module" src="script.js"></script>
 </body>
 </html>
