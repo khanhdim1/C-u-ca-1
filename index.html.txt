@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🎣 Đi Câu Cá 3D — Full Features</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="ui">
+    <h1>🎣 Đi Câu Cá 3D</h1>
+    <div class="row">
+      <span>Điểm: <b id="score">0</b></span>
+      <span>• Combo: <b id="combo">x1</b></span>
+    </div>
+    <div class="row">
+      <span>Thời gian: <b id="timer">120</b>s</span>
+      <span>• Trạng thái: <b id="state">Sẵn sàng</b></span>
+    </div>
+    <div id="hint">
+      Chuột để <b>ngắm</b> • <b>Click</b> ném mồi • Giữ <b>Space</b> kéo nhanh • <b>R</b> thu về • <b>M</b> bật/tắt âm • Lăn chuột để zoom
+    </div>
+    <div class="buttons">
+      <button id="btnRestart">Chơi lại</button>
+      <button id="btnMute">Tắt âm</button>
+    </div>
+  </div>
+
+  <canvas id="minimap" width="170" height="170" aria-label="Minimap"></canvas>
+
+  <div id="gameOver" class="hidden">
+    <div class="panel">
+      <h2>⏰ Hết giờ!</h2>
+      <p>Điểm của bạn: <b id="finalScore">0</b></p>
+      <button id="btnPlayAgain">Chơi lại</button>
+    </div>
+  </div>
+
+  <!-- Three.js game -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
